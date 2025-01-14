@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     "./src/**/*.tsx"
@@ -11,10 +14,10 @@ module.exports = {
       keyframes: {
         slideIn: {
           from: {width: 0},
-          to: {width: '--radix-collapsible-content-width'}
+          to: {width: 'var(--radix-collapsible-content-width)'}
         },
         slideOut: {
-          from: {width: '--radix-collapsible-content-width'},
+          from: {width: 'var(--radix-collapsible-content-width)'},
           to: {width: 0}
         }
       },
@@ -24,6 +27,15 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [plugin(({addUtilities}) => {
+    addUtilities({
+      '.region-drag': {
+        '-webkit-app-region': 'drag'
+      },
+      '.region-no-drag': {
+        '-webkit-app-region': 'no-drag'
+      }
+    })
+  })],
 }
 
