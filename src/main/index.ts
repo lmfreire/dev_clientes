@@ -2,7 +2,10 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join, resolve } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { createURLRoute, createFileRoute} from 'electron-router-dom';
+import { createTray } from "./tray"
 
+import "./ipc"
+import "./store"
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -21,6 +24,9 @@ function createWindow(): void {
       sandbox: false
     }
   })
+
+  //Chamar para exibir tray
+  createTray(mainWindow)
 
 
   if(process.platform === 'darwin'){
