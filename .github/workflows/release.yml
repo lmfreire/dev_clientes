@@ -8,19 +8,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm install
 
-      - name: Release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+      - name: Criar build do Electron
+        run: npm run build:win
+
+      - name: Publicar Release
+        uses: lmfreire/action-electron-builder@v1
         with:
           github_token: ${{ secrets.github_token }}
           release: true
