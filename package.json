@@ -1,7 +1,7 @@
 {
   "name": "devclientes",
   "productName" : "Dev Clientes",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Sistema para gerenciar Clientes",
   "main": "./out/main/index.js",
   "author": "lmfreire.com",
