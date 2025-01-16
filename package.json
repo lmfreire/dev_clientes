@@ -1,7 +1,7 @@
 {
   "name": "devclientes",
   "productName" : "Dev Clientes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sistema para gerenciar Clientes",
   "main": "./out/main/index.js",
   "author": "lmfreire.com",
@@ -58,5 +58,8 @@
   },
   "build": {
     "asar": false
+  },
+  "win": {
+    "target": "nsis"
   }
 }
