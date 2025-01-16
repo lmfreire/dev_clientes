@@ -1,4 +1,4 @@
-appId: com.electron.app
+appId: com.lmfreire.app
 productName: devclientes
 directories:
   buildResources: build
@@ -33,11 +33,9 @@ linux:
     - AppImage
     - snap
     - deb
-  maintainer: electronjs.org
+  maintainer: lmfreire.com
+  synopsis: ${description}
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
-publish:
-  provider: generic
-  url: https://example.com/auto-updates
