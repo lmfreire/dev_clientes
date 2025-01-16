@@ -27,6 +27,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GH_TOKEN }}
           release: true
           args: --win
