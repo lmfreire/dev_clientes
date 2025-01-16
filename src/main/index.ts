@@ -3,6 +3,7 @@ import { join, resolve } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { createURLRoute, createFileRoute} from 'electron-router-dom';
 import { createTray } from "./tray"
+import { createShortcuts } from './shortcuts'
 
 import "./ipc"
 import "./store"
@@ -27,6 +28,7 @@ function createWindow(): void {
 
   //Chamar para exibir tray
   createTray(mainWindow)
+  createShortcuts(mainWindow)
 
 
   if(process.platform === 'darwin'){

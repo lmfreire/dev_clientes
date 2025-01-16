@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function Home(){
     const queryClient = useQueryClient();
 
-    const {data} = useQuery({queryKey: ["customers"], queryFn: async () => {
+    const {data, isFetching} = useQuery({queryKey: ["customers"], queryFn: async () => {
         const response = await window.api.fetchAllCustomers()
         
         return response
@@ -40,10 +40,18 @@ export function Home(){
             </div>
 
             <section className="flex flex-col gap-6 w-full h-screen overflow-y-auto px-10 pb-[200px]">
+                {!isFetching && data?.length === 0 && (
+                    <div className="text-gray-300">
+                        <p>Nenhum cliente encontrado.</p>
+                    </div>
+                )}
                 {data?.map((customer) => (
-                    <Link to="/" key={customer._id} className="
+                    <Link 
+                        to={`/customer/${customer._id}`} 
+                        key={customer._id} 
+                        className="
                         bg-gray-800 px-4 py-3 rounded
-                    ">
+                        ">
                         <p className="mb-2 font-semibold text-lg">{customer.name}</p>
                         <p><span className="font-semibold">Email: </span>{customer.email}</p>
                         {customer.phone && (

@@ -32,7 +32,7 @@ export function Create(){
             addressRef.current!.value = "";
             roleRef.current!.value = "";
             phoneRef.current!.value = "";
-            // navigate("/");
+            navigate("/");
         }).catch((err) => {
             console.log("ERRO AO CADASTRAR: ", err);            
         });
